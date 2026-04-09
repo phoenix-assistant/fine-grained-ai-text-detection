@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aidetect"
+version = "0.1.0"
+description = "Fine-grained AI text detection with sentence-level model attribution"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = [
+    "click>=8.0",
+    "rich>=13.0",
+    "nltk>=3.8",
+    "scikit-learn>=1.3",
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "build"]
+mcp = ["fastapi>=0.100", "uvicorn>=0.23"]
+
+[project.scripts]
+aidetect = "aidetect.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["aidetect*"]
